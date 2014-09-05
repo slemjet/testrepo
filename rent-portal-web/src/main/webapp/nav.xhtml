@@ -1,0 +1,28 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <nav id="globalNav">
+        <h:form>
+            <p:growl id="messages" showDetail="false"/>
+            <p:menu>
+                <p:submenu label="Ajax Menuitems">
+                    <p:menuitem value="Register" outcome="/registration" icon="ui-icon-person"/>
+                </p:submenu>
+                <p:submenu label="Ajax Menuitems">
+                    <p:menuitem value="Save" actionListener="#{menuBean.save}" update="messages" icon="ui-icon-disk"/>
+                    <p:menuitem value="Update" actionListener="#{menuBean.update}" update="messages"
+                                icon="ui-icon-arrowrefresh-1-w"/>
+                </p:submenu>
+                <p:submenu label="Non-Ajax Menuitem">
+                    <p:menuitem value="Delete" actionListener="#{menuBean.delete}" update="messages" ajax="false"
+                                icon="ui-icon-close"/>
+                </p:submenu>
+                <p:submenu label="Navigations">
+                    <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
+                    <p:menuitem value="Injected" outcome="/injected" icon="ui-icon-star"/>
+                </p:submenu>
+            </p:menu>
+        </h:form>
+    </nav>
+</ui:composition>

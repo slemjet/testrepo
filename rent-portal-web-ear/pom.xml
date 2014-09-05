@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>rent-portal</artifactId>
+        <groupId>rent-portal</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>rent-portal-web-ear</artifactId>
+    <packaging>ear</packaging>
+
+    <name>rent-portal-web-ear</name>
+
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>rent-portal</groupId>
+            <artifactId>rent-portal-web</artifactId>
+            <version>${project.parent.version}</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>${version.maven-ear-plugin}</version>
+                <configuration>
+                    <finalName>rent-portal-web-ear</finalName>
+                    <generateApplicationXml>true</generateApplicationXml>
+                    <modules>
+
+                        <webModule>
+                            <groupId>${project.parent.groupId}</groupId>
+                            <artifactId>rent-portal-web</artifactId>
+                            <contextRoot>/rent-portal</contextRoot>
+                        </webModule>
+
+                    </modules>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

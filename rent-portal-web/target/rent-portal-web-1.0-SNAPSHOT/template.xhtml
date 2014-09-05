@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+        >
+<h:head>
+    <h:outputStylesheet library="css" name="default.css"/>
+</h:head>
+<h:body>
+    <ui:insert name="header">
+        <ui:include src="header.xhtml"/>
+    </ui:insert>
+
+    <ui:insert name="nav">
+        <ui:include src="nav.xhtml"/>
+    </ui:insert>
+
+    <div class="content">
+        <ui:insert name="content">
+        </ui:insert>
+    </div>
+    <ui:insert name="footer">
+
+    </ui:insert>
+</h:body>
+</html>

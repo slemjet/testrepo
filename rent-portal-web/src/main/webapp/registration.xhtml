@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content">
+        <h:head>
+            <title>Registration page</title>
+
+            <h:outputScript library="primefaces" name="jquery/jquery.js" />
+
+
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $(document).on('click', 'a.pointer', function(event){
+                        event.preventDefault();
+                        var element = $(this);
+                        var input = $("[id$='" + element.data('id') + "']");
+                        console.log('link click ', element.data('id'), input);
+
+
+                        $('html, body').animate({
+                            scrollTop: $("[id$='" + element.data('id') + "']").offset().top
+                        }, 500);
+                    });
+                });
+            </script>
+        </h:head>
+
+        <h:body>
+
+
+
+
+            <h:form id="registrationForm">
+                <p:messages id="messages" autoUpdate="true" showIcon="false" escape="false"/>
+                <p:growl id="registrationMessage" life="2000"/>
+
+                <h4>Немного о том как работает Maven</h4>
+                <br/>
+                Жизненный цикл Maven достаточно полный, и набор фаз(phases) учитывает практически
+                <a href="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference">все этапы сборки проекта</a>
+                , которые могут потребоваться.
+                <br/>
+                <br/>
+                Причем пытаясь запустить какую-то фазу ЖЦ, например «mvn compile», я на самом деле запускаю всю цепочку фаз от validate (валидация проекта) до compile, не пропуская ни одной. Для каких-то фаз существуют так называемые плагины по умолчанию, которые будут вызваны несмотря на то, что в pom.xml(основной файл Maven проекта) существует только заголовок и ни одного указания на запуск плагинов.
+                <br/>
+                <br/>
+                Здесь стоит отдельно отметить тот факт, что Maven — это полностью плагинная система. Иными словами, он не умеет практически ничего, кроме запуска плагинов, а вот они уже умеют делать потрясающе много. Получается, что когда мы хотим научить Maven каким- то особенностям сборки проекта, мы должны добавить в pom.xml указание на запуск нужного плагина в нужную фазу и с нужными параметрами.
+                <br/>
+                <br/>
+                Вот такой абсолютно валидный пустой pom.xml, несмотря на свою пустоту, при получении команды mvn deploy запустит Плагин инициализации, компиляции, упаковки и деплоя Java исходников из папки src/main.
+                <br/>
+
+
+                <p:panelGrid>
+                    <f:facet name="header">
+                        <p:row>
+                            <p:column colspan="2">
+                                <h:outputText value="Enter your personal data"/>
+                            </p:column>
+                        </p:row>
+                    </f:facet>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputLabel for="firstname" value="First name"/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="firstname" value="#{person.firstname}">
+                                <p:ajax event="keyup" update="fistnameMessages"/>
+                            </p:inputText>
+                            <p:message id="fistnameMessages" for="firstname"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputLabel for="lastname" value="Last name"/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="lastname" value="#{person.lastname}">
+                                <p:ajax event="keyup" update="lastnameMessages"/>
+                            </p:inputText>
+                            <p:message id="lastnameMessages" for="lastname"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputLabel for="login" value="Login"/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="login" value="#{person.login}">
+                                <p:ajax event="keyup" update="loginMessages"/>
+                            </p:inputText>
+                            <p:message id="loginMessages" for="login" escape="false"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputLabel for="password" value="Password"/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="password" value="#{person.password}">
+                                <p:ajax event="keyup" update="passwordMessages"/>
+                            </p:inputText>
+                            <p:message id="passwordMessages" for="password"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputLabel for="ssn" value="SSN"/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="ssn" value="#{person.ssn}">
+                                <p:ajax event="keyup" update="ssnMessages"/>
+                            </p:inputText>
+                            <p:message id="ssnMessages" for="ssn"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column colspan="2">
+                            <p:commandButton value="Submit" id="ajax" update="registrationForm registrationMessage"
+                                             actionListener="#{registrationBean.submitData}" styleClass="ui-priority-primary"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+            </h:form>
+        </h:body>
+    </ui:define>
+
+
+</ui:composition>

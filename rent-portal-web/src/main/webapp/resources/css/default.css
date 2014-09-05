@@ -1,0 +1,8 @@
+nav#globalNav{
+    float: left;
+    width: 300px;
+}
+
+.content{
+    margin-left: 300px;
+}
