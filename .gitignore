@@ -1,0 +1,73 @@
+ Skip to content
+This repository
+
+    Explore
+    Gist
+    Blog
+    Help
+
+    cuatemoc cuatemoc
+
+You don't have any verified emails. We recommend verifying at least one email.
+
+Email verification helps our support team help you in case you have any email issues or lose your password.
+
+    806
+    18,241
+    6,580
+
+github/gitignore
+
+gitignore / Global / JetBrains.gitignore
+Carl Suster arcresu 4 days ago
+Tidy up the JetBrains comments
+
+8 contributors
+Sam Duke Carl Suster Ivan Yatskevich Josh Turmel Daniel Rothmaler Nainterceptor Christoph Emmersberger ssinss
+45 lines (32 sloc) 0.784 kb
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+/*.iml
+## Directory-based project format:
+.idea/
+# if you remove the above rule, at least ignore the follwing:
+# User-specific stuff:
+# .idea/workspace.xml
+# .idea/tasks.xml
+# .idea/dictionaries
+# Sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
+# Gradle:
+# .idea/gradle.xml
+# .idea/libraries
+# Mongo Explorer plugin:
+# .idea/mongoSettings.xml
+## File-based project format:
+*.ipr
+*.iws
+## Plugin-specific files:
+# IntelliJ
+out/
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+# JIRA plugin
+atlassian-ide-plugin.xml
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+
+    Status
+    API
+    Training
+    Shop
+    Blog
+    About
+
+    © 2014 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Contact
+
